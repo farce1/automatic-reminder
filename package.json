@@ -1,0 +1,20 @@
+{
+  "name": "auto-reminder",
+  "version": "1.0.0",
+  "description": "Automate your home duties",
+  "main": "index.js",
+  "repository": "https://github.com/farce1/auto-reminder.git",
+  "author": "Grzegorz Sztuczyński <sztuczynski.grzegorz@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  },
+  "dependencies": {
+    "node-cron": "^2.0.3",
+    "node-mailer": "^0.1.1"
+  }
+}

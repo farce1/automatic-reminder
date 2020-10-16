@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "nodemon src/main.js",
-    "start": "standard --fix && node src/main.js"
+    "lint": "standard --fix",
+    "start": "node src/main.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.5",

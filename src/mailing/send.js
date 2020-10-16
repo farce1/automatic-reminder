@@ -3,6 +3,12 @@ const defaultMailingList = process.env.MAILING_LIST
 const senderEmail = process.env.GMAIL_USERNAME
 const senderPassword = process.env.GMAIL_PASSWORD
 
+const date = new Date().toDateString()
+
+const htmlContent = `
+<p>SPRAWDZ LISTE SPRZATANIA</p>
+`
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   secure: 'false',
@@ -19,18 +25,17 @@ const transporter = nodemailer.createTransport({
 const mailOptions = {
   from: senderEmail,
   to: defaultMailingList,
-  subject: 'Automatyczne Obowiązki Domowe',
-  text: 'DZISIAJ SPRZATAMY DOM'
+  subject: `Obowiązki domowe (${date})`,
+  html: htmlContent,
+  attachments: [
+    {
+      path: 'src/resources/images/task_table.jpg'
+    }
+  ]
 }
 
 const sendEmail = (options = mailOptions) =>
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log('Email sent: ' + info.response)
-    }
-  })
+  transporter.sendMail(mailOptions, (error, info) => error ? console.log(error) : console.log(`Email sent ${date} : ${info.response}`))
 
 module.exports = {
   sendEmail

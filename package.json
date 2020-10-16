@@ -7,13 +7,15 @@
   "author": "Grzegorz Sztuczyński <sztuczynski.grzegorz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "nodemon index.js",
-    "start": "node index.js"
+    "watch": "nodemon src/main.js",
+    "start": "standard --fix && node src/main.js"
   },
   "devDependencies": {
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.5",
+    "standard": "^14.3.4"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "node-cron": "^2.0.3",
     "node-mailer": "^0.1.1"
   }

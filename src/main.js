@@ -1,6 +1,6 @@
-require('dotenv').config()
-const cron = require('node-cron')
-const { sendEmail } = require('./mailing/send')
+
+import cron from 'node-cron'
+import sendEmail from './mailing/send'
 
 const task = cron.schedule('00 30 11 * * *', () => {
   sendEmail()
@@ -8,4 +8,5 @@ const task = cron.schedule('00 30 11 * * *', () => {
   timezone: 'Europe/Warsaw'
 })
 
+console.log('App is running...')
 task.start()

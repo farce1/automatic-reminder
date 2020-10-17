@@ -1,7 +1,9 @@
-const nodemailer = require('nodemailer')
-const defaultMailingList = process.env.MAILING_LIST
-const senderEmail = process.env.GMAIL_USERNAME
-const senderPassword = process.env.GMAIL_PASSWORD
+import nodemailer from 'nodemailer'
+import envs from '../config'
+
+const defaultMailingList = envs.MAILING_LIST
+const senderEmail = envs.GMAIL_USERNAME
+const senderPassword = envs.GMAIL_PASSWORD
 
 const date = new Date().toDateString()
 
@@ -37,6 +39,4 @@ const mailOptions = {
 const sendEmail = (options = mailOptions) =>
   transporter.sendMail(mailOptions, (error, info) => error ? console.log(error) : console.log(`Email sent ${date} : ${info.response}`))
 
-module.exports = {
-  sendEmail
-}
+export default sendEmail

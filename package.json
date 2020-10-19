@@ -10,7 +10,8 @@
     "build": "rimraf ./build && tsc",
     "watch": "nodemon --exec babel-node src/main.ts",
     "lint": "standard --fix",
-    "start": "npm run build && node build/main.js"
+    "start:dev": "npm run build && node build/main.js",
+    "start": "node build/main.js"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.162",

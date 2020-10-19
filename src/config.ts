@@ -1,15 +1,17 @@
 import dotenv from 'dotenv'
+
 import _ from 'lodash'
 
-const result = dotenv.config()
+const result: dotenv.DotenvConfigOutput = dotenv.config()
 
-let envs
+let envs: any
 
 if (!('error' in result)) {
   envs = result.parsed
 } else {
   envs = {}
-  _.each(process.env, (value, key) => { envs[key] = value })
+
+  _.each(process.env, (value: any, key: any) => { envs[key] = value })
 }
 
 export default envs

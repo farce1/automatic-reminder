@@ -7,21 +7,30 @@
   "author": "Grzegorz Sztuczyński <sztuczynski.grzegorz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "nodemon --exec babel-node src/main.js",
+    "build": "rimraf ./build && tsc",
+    "watch": "nodemon --exec babel-node src/main.ts",
     "lint": "standard --fix",
-    "start": "babel-node src/main.js"
+    "start": "npm run build && node build/main.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
     "nodemon": "^2.0.5",
-    "standard": "^14.3.4"
+    "rimraf": "^3.0.2",
+    "standard": "^14.3.4",
+    "ts-migrate": "^0.1.7",
+    "ts-node": "^9.0.0"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.162",
+    "@types/node-cron": "^2.0.3",
+    "@types/nodemailer": "^6.4.0",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.20",
     "node-cron": "^2.0.3",
-    "nodemailer": "^6.4.14"
+    "nodemailer": "^6.4.14",
+    "typescript": "^4.0.3"
   }
 }

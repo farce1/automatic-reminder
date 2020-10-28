@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "http": "^0.0.1-security",
     "lodash": "^4.17.20",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.14",

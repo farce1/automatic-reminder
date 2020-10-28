@@ -10,9 +10,4 @@ const cronTaskToSchedule = (): void => {
     console.log('Email Sent!')
 }
 
-const task: cron.ScheduledTask = cron.schedule(scheduleExpression, cronTaskToSchedule, cronOptions)
-
-export const beginTasks = (): void => {
-    console.log('Tasks Started!')
-    task.start()
-}
+export const task: cron.ScheduledTask = cron.schedule(scheduleExpression, cronTaskToSchedule, cronOptions)

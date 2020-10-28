@@ -1,16 +1,11 @@
-import cron from 'node-cron'
-import sendEmail from './mailing/send'
+import http from 'http'
+import {beginTasks} from "./tasks"
 
-const scheduleExpression: string = '00 30 11 * * *'
-const cronOptions: cron.ScheduleOptions = {
-  timezone: 'Europe/Warsaw'
-}
-const cronTaskToSchedule = () => {
-  sendEmail()
-  console.log('Email Sent!')
-}
+const endRequest = (req, res) => res.end()
+const port = process.env.PORT || 5000
+const server = http.createServer(endRequest)
 
-const task = cron.schedule(scheduleExpression, cronTaskToSchedule, cronOptions)
-
-console.log('App is running...')
-task.start()
+server.listen(port,() => {
+  console.log(`Server Listening on port: ${port}`
+      beginTasks()
+} ))

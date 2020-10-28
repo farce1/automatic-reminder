@@ -7,11 +7,13 @@ const result: dotenv.DotenvConfigOutput = dotenv.config()
 let envs: any
 
 if (!('error' in result)) {
-  envs = result.parsed
+    envs = result.parsed
 } else {
-  envs = {}
+    envs = {}
 
-  _.each(process.env, (value: any, key: any) => { envs[key] = value })
+    _.each(process.env, (value: any, key: any) => {
+        envs[key] = value
+    })
 }
 
 export default envs
